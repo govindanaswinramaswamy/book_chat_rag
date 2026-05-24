@@ -1,0 +1,29 @@
+paths:
+  pdf: data/books/Designing Machine Learning Systems; An Iterative Process for Production.pdf
+  vector_store: data/chroma_db
+  evals: data/evals
+
+params:
+
+  # params for index creation
+  index:
+    collection_name: ml_book
+    chunking:
+      chunk_size: 1000
+      chunk_overlap: 200
+    embedding_model_name: BAAI/bge-m3
+
+  # params for query engine (RAG)
+  engine:
+    retriever_k: 6
+    reranker_model_name: BAAI/bge-reranker-base
+    reranker_n: 3
+    llm:
+      model_name: qwen3:1.7b
+      temperature: 0
+
+  # params for evals
+  evals:
+    llm:
+      model_name: qwen3:1.7b
+      temperature: 0
