@@ -1,4 +1,5 @@
 from typing import Any, List
+import regex as re
 
 from langchain_chroma import Chroma
 from langchain_classic.retrievers import ContextualCompressionRetriever
@@ -137,28 +138,14 @@ def query_engine(
     Return ONLY valid JSON:
 
     {{
-      "relevance_check": boolean,
-      "plan": "short support summary",
       "answer": "string",
-      "groundedness_check": boolean,
-      "citation_check": boolean,
-      "usefulness_check": boolean
+      "reason": "string"
     }}
-
-    Checks:
-    - relevance_check: true when the retrieved chunks are relevant to the question
-    - groundedness_check: true when the answer contains no unsupported factual claims; safe refusal answers should also be true
-    - citation_check: true when all factual claims include valid citations
-    - usefulness_check: true when the answer is clear and useful
 
     Example:
     {{
-      "relevance_check": true,
-      "plan": "Use refund policy from chunk 2.",
       "answer": "The refund period is 30 days from purchase [2, p. 128].",
-      "groundedness_check": true,
-      "citation_check": true,
-      "usefulness_check": true
+      "reason": "Chunk 2, page 128 explicitly states that refunds are allowed within 30 days of purchase."
     }}
     """
 
@@ -170,19 +157,30 @@ def query_engine(
         # call llm
         response = answer_llm.invoke(prompt)
 
+        # extract answer, reason
+        answer = response.answer.strip()
+        reason = response.reason.strip()
+
+        # # lightweight guardrails
+        # invalid_answer = (
+        #     not answer
+        #     or not re.search(r"\[\d+\s*,\s*p\.\s*\d+\]", answer)
+        #     or "chunk" in answer.lower()
+        #     or "retrieved chunk" in answer.lower()
+        #     or "source excerpt" in answer.lower()
+        # )
+        # if invalid_answer:
+        #     answer = "I could not generate a reliable answer to this question."
+        #     reason = "Guardrail triggered."
+
         result = {
             "question": question,
             "formatted_chat_history": formatted_chat_history,
             "retrieval_question": retrieval_question,
-            "answer": response.answer,
-            "relevance_check": response.relevance_check,
-            "plan": response.plan,
-            "groundedness_check": response.groundedness_check,
-            "citation_check": response.citation_check,
-            "usefulness_check": response.usefulness_check,
             "chunks": chunks,
             "context": context,
-            "llm_error": None
+            "answer": answer,
+            "reason": reason
         }
 
     except Exception as e:
@@ -191,15 +189,10 @@ def query_engine(
             "question": question,
             "formatted_chat_history": formatted_chat_history,
             "retrieval_question": retrieval_question,
-            "answer": "Error generating answer",
-            "relevance_check": False,
-            "plan": "Error generating plan",
-            "groundedness_check": False,
-            "citation_check": False,
-            "usefulness_check": False,
             "chunks": chunks,
             "context": context,
-            "llm_error": str(e)
+            "answer": f"Error generating answer: {e}",
+            "reason": f"Error generating reason: {e}"
         }
 
     return result
@@ -210,12 +203,8 @@ def query_engine(
 # ----------------------------------------------------
 
 class RagResponse(BaseModel):
-    relevance_check: bool = Field(description="Whether the retrieved chunks are relevant to the question")
-    plan: str = Field(description="Short summary of which chunk information supports the answer")
     answer: str = Field(description="Grounded answer with citations")
-    groundedness_check: bool = Field(description="Whether every factual claim is supported by the retrieved chunks")
-    citation_check: bool = Field(description="Whether all factual claims contain valid citations")
-    usefulness_check: bool = Field(description="Whether the answer is clear and useful")
+    reason: str = Field(description="Brief internal explanation of source support")
 
 
 class RephraseQuestion(BaseModel):

@@ -141,21 +141,17 @@ def build_evals_dataframe(
             "ground_truth_answer": row.answer,
             "group": row.group,
 
+            # retrieval
+            "context": result["context"],
+            "chunks": result["chunks"],
+            "num_chunks": len(result["chunks"]),
+
             # generated answer
             "formatted_chat_history": result["formatted_chat_history"],
             "retrieval_question": result["retrieval_question"],
             "predicted_answer": result["answer"],
-            "relevance_check": result["relevance_check"],
-            "plan": result["plan"],
-            "groundedness_check": result["groundedness_check"],
-            "citation_check": result["citation_check"],
-            "usefulness_check": result["usefulness_check"],
+            "predicted_reason": result["reason"]
 
-            # retrieval
-            "context": result["context"],
-            "chunks": result["chunks"],
-            "llm_error": result["llm_error"],
-            "num_chunks": len(result["chunks"])
         })
 
     # create df_evals using rows list
@@ -545,17 +541,6 @@ def generate_and_save_reports(
             f"PREDICTED ANSWER",
             f"{'=' * 80}",
             f"{row['predicted_answer']}",
-            "",
-
-            f"{'=' * 80}",
-            f"SELF EVALUATION",
-            f"{'=' * 80}",
-            f"Relevance Check    : {row['relevance_check']}",
-            f"Plan               : {row['plan']}",
-            f"Groundedness Check : {row['groundedness_check']}",
-            f"Citation Check     : {row['citation_check']}",
-            f"Usefulness Check   : {row['usefulness_check']}",
-            f"LLM Error          : {row['llm_error']}",
             "",
 
             f"{'=' * 80}",
