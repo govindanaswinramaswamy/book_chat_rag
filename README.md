@@ -38,6 +38,8 @@ Citation + Guardrail Checks
 Final Answer
 ```
 
+---
+
 ## Capabilities
 
 - Retrieval-based grounded question answering
