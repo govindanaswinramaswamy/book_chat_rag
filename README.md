@@ -14,6 +14,7 @@ Below is a screenshot of the chatbot interface:
 
 ![UI Screenshot](assets/chat_interface.png)
 
+---
 
 ## Method Walkthrough
 
