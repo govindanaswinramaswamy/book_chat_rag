@@ -1,0 +1,109 @@
+================================================================================
+QUESTION
+================================================================================
+How do batch processing and stream processing differ, what types of ML features does each support, and why is stream processing important in modern ML systems?
+
+================================================================================
+GROUP
+================================================================================
+long-context
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What are the key differences between batch and stream processing in ML, what types of features do they support, and why is stream processing important in modern ML systems?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Batch processing operates on historical data stored in databases, data lakes, or warehouses and typically runs periodically using systems like MapReduce or Spark. It is commonly used to compute slowly changing or static features, such as driver ratings. Stream processing operates on continuously arriving data from systems like Kafka or Kinesis and processes data in real time or near real time using engines such as Apache Flink, KSQL, or Spark Streaming. It is used to compute rapidly changing or dynamic features, such as live demand, available drivers, or recent prices. Stream processing is important because it enables low-latency computation, supports stateful incremental updates without repeatedly recomputing entire datasets, and allows ML systems to react quickly to changing conditions. Modern ML systems often combine both batch and streaming features, requiring infrastructure capable of processing and joining both data types.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 98
+
+two reasons. First, streaming technologies like Apache Flink are proven to be highly
+scalable and fully distributed, which means they can do computation in parallel.
+Second, the strength of stream processing is in stateful computation. Consider the
+case where you want to process user engagement during a 30-day trial. If you kick
+off this batch job every day, you’ll have to do computation over the last 30 days every
+day. With stream processing, it’s possible to continue computing only the new data
+each day and joining the new data computation with the older data computation,
+preventing redundancy.
+Because batch processing happens much less frequently than stream processing, in
+ML, batch processing is usually used to compute features that change less often, such
+as drivers’ ratings (if a driver has had hundreds of rides, their rating is less likely
+to change significantly from one day to the next). Batch features—features extracted
+
+Chunk idx 2
+Page number 99
+
+For ML systems that leverage streaming features, the streaming computation is
+rarely simple. The number of stream features used in an application such as fraud
+detection and credit scoring can be in the hundreds, if not thousands. The stream
+feature extraction logic can require complex queries with join and aggregation along
+different dimensions. To extract these features requires efficient stream processing
+engines. For this purpose, you might want to look into tools like Apache Flink, KSQL,
+and Spark Streaming. Of these three engines, Apache Flink and KSQL are more
+recognized in the industry and provide a nice SQL abstraction for data scientists.
+Stream processing is more difficult because the data amount is unbounded and the
+data comes in at variable rates and speeds. It’s easier to make a stream processor
+do batch processing than to make a batch processor do stream processing. Apache
+Flink’s core maintainers have been arguing for years that batch processing is a special
+
+Chunk idx 3
+Page number 98
+
+Batch Processing Versus Stream Processing
+Once your data arrives in data storage engines like databases, data lakes, or data
+warehouses, it becomes historical data. This is opposed to streaming data (data that
+is still streaming in). Historical data is often processed in batch jobs—jobs that are
+kicked off periodically. For example, once a day, you might want to kick off a batch
+job to compute the average surge charge for all the rides in the last day.
+When data is processed in batch jobs, we refer to it as batch processing. Batch process!
+ing has been a research subject for many decades, and companies have come up with
+distributed systems like MapReduce and Spark to process batch data efficiently.
+When you have data in real-time transports like Apache Kafka and Amazon Kinesis,
+we say that you have streaming data. Stream processing refers to doing computation
+on streaming data. Computation on streaming data can also be kicked off periodi !
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+Batch processing is used for static features that change infrequently, such as driver ratings, while stream processing handles dynamic, real-time data like fraud detection features. Stream processing is important for its scalability, stateful computation, and ability to process unbounded, variable-rate data, enabling real-time analysis and efficient state management [c. 1, p. 98].
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question is identical to the original except for the word 'key' in the first part. Since the original already includes 'key differences', the meaning is preserved. The conversation history shows that the original question is clear and concise, and the rewritten version is slightly different in wording but retains the same meaning and context.
+Flag   : True
+Reason : The rewritten question preserves the original meaning, is clear and concise, and matches the original in context and intent.
+
+[Relevance]
+Think  : The retrieved context covers the differences between batch and stream processing, the ML features each supports, and the importance of stream processing. All chunks are relevant and provide necessary information.
+Flag   : True
+Reason : All chunks provide relevant information about batch vs. stream processing, ML features, and the importance of stream processing in modern ML systems.
+
+[Groundedness]
+Think  : The predicted answer cites specific points from the retrieved context regarding batch and stream processing differences, supported features, and reasons for stream processing importance. All claims are grounded in the provided text.
+Flag   : True
+Reason : All factual claims in the answer are supported by the retrieved context, including details about batch processing for static features, stream processing for dynamic data, scalability, stateful computation, and unbounded data handling.
+
+[Correctness]
+Think  : The predicted answer correctly identifies the main differences between batch and stream processing (static vs. dynamic data, scalability, stateful computation), and covers the importance of stream processing. It mentions key aspects like scalability, stateful computation, and variable-rate data, which align with the ground truth. However, it misses the mention of combining batch and stream processing in modern ML systems, which is a key point in the ground truth. The core information is consistent.
+Flag   : True
+Reason : The predicted answer covers the main points about batch and stream processing differences and stream processing importance, even if it omits the combination of both in modern ML systems.

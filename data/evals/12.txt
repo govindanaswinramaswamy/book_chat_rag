@@ -1,0 +1,108 @@
+================================================================================
+QUESTION
+================================================================================
+Why did the Industrial Revolution lead to urbanization?
+
+================================================================================
+GROUP
+================================================================================
+external
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What led to urbanization during the Industrial Revolution?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+I cannot answer this question as it is out of my knowledge.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 250
+
+can happen gradually because social norms, cultures, languages, trends, industries,
+etc. just change over time. They can also happen due to seasonal variations, such as
+people might be more likely to request rideshares in the winter when it’s cold and
+snowy than in the spring.
+Due to the complexity of ML systems and the poor practices in deploying them,
+a large percentage of what might look like data shifts on monitoring dashboards
+are caused by internal errors, 9 such as bugs in the data pipeline, missing values
+incorrectly inputted, inconsistencies between the features extracted during training
+and inference, features standardized using statistics from the wrong subset of data,
+230 | Chapter 8: Data Distribution Shifts and Monitoring
+
+Chunk idx 2
+Page number 349
+
+33 Erik Bernhardsson on Twitter (@bernhardsson), September 29, 2021, https://oreil.ly/GnxOH.
+This is what happens in the early days of ML adoption in the industry. Com !
+panies that are early adopters, i.e., big tech companies, build out their own
+infrastructure because there are no solutions mature enough for their needs. This
+leads to the situation where every company’s infrastructure is different. A few
+years later, solution offerings mature. However, these offerings find it difficult to
+sell to big tech companies because it’s impossible to create a solution that works
+with the majority of custom infrastructure.
+As we’re building out Claypot AI, other founders have actually advised us to
+avoid selling to big tech companies because, if we do, we’ll get sucked into what
+they call “integration hell”—spending more time integrating our solution with
+custom infrastructure instead of building out our core features. They advised us
+to focus on startups with much cleaner slates to build on.
+
+Chunk idx 3
+Page number 259
+
+Covariate shift can also be caused by the model’s learning process, especially through
+active learning. In Chapter 4, we defined active learning as follows: instead of ran !
+domly selecting samples to train a model on, we use the samples most helpful to that
+model according to some heuristics. This means that the training input distribution
+is altered by the learning process to differ from the real-world input distribution, and
+covariate shifts are a by-product.25
+In production, covariate shift usually happens because of major changes in the envi !
+ronment or in the way your application is used. Imagine you have a model to predict
+how likely a free user will be to convert to a paid user. The income level of the user
+is a feature. Y our company’s marketing department recently launched a campaign that
+attracts users from a demographic more affluent than your current demographic. The
+input distribution into your model has changed, but the probability that a user with a
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+I do not have enough relevant information in my knowledge to answer this question.
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question preserves the original meaning by focusing on the same topic (causes of urbanization) but adds the time frame 'during the Industrial Revolution' to clarify the context. It maintains clarity and conciseness while correctly using the conversation history to specify the temporal scope.
+Flag   : True
+Reason : The rewritten question retains the original meaning, adds contextual specificity, and remains retrieval-friendly without altering the core intent.
+
+[Relevance]
+Think  : The retrieved context discusses data distribution shifts in machine learning, including covariate shift and related technical concepts. The question is about the Industrial Revolution and urbanization, which are historical events. None of the chunks provide relevant information about historical causes or effects of the Industrial Revolution. All chunks are irrelevant to the question.
+Flag   : False
+Reason : All retrieved chunks are unrelated to the Industrial Revolution and urbanization.
+
+[Groundedness]
+Think  : The predicted answer is a safe refusal as it does not make any factual claims and lacks citations. The retrieved context does not provide relevant information to answer the question.
+Flag   : True
+Reason : The answer is a safe refusal as it does not make any factual claims and lacks citations. The retrieved context does not provide relevant information to answer the question.
+
+[Correctness]
+Think  : Both the predicted and ground truth answers acknowledge that the responder lacks sufficient knowledge to answer the question. The predicted answer uses 'not enough relevant information,' while the ground truth states 'out of my knowledge.' Both convey the same core message of insufficient information, making them factually consistent.
+Flag   : True
+Reason : The predicted answer aligns with the ground truth in its acknowledgment of insufficient knowledge, though phrasing differs slightly.

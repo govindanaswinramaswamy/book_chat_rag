@@ -1,0 +1,113 @@
+================================================================================
+QUESTION
+================================================================================
+How do machine learning systems differ from traditional software systems, and what challenges do they introduce?
+
+================================================================================
+GROUP
+================================================================================
+conceptual
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What are the differences between machine learning systems and traditional software systems, and what challenges do they introduce?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Machine learning systems differ from traditional software systems in both how they are built and the challenges they introduce. Traditional software typically relies on explicitly programmed rules and modular separation between code and data, whereas ML systems learn patterns directly from data. This makes ML especially useful for complex tasks such as object detection or language understanding, where manually defining rules would be impractical. Unlike research-focused ML, production ML systems must operate reliably under real-world constraints such as scalability, latency, monitoring, and changing data distributions. As a result, ML systems require specialized tooling for data management, model training, deployment, evaluation, and continuous improvement. Because behavior is driven by both code and learned parameters from data, ML systems are often referred to as Software 2.0.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 42
+
+31 Xinyun Chen, Chang Liu, Bo Li, Kimberly Lu, and Dawn Song, “Targeted Backdoor Attacks on Deep
+Learning Systems Using Data Poisoning, ” arXiv, December 15, 2017, https://oreil.ly/OkAjb.
+32 We’ll cover edge devices in Chapter 7.
+Machine Learning Systems Versus Traditional Software
+Since ML is part of software engineering (SWE), and software has been successfully
+used in production for more than half a century, some might wonder why we don’t
+just take tried-and-true best practices in software engineering and apply them to ML.
+That’s an excellent idea. In fact, ML production would be a much better place if ML
+experts were better software engineers. Many traditional SWE tools can be used to
+develop and deploy ML applications.
+However, many challenges are unique to ML applications and require their own tools.
+In SWE, there’s an underlying assumption that code and data are separated. In fact, in
+SWE, we want to keep things as modular and separate as possible (see the Wikipedia
+
+Chunk idx 2
+Page number 32
+
+care provider such as a hospital or used to assist doctors in providing diagnosis.
+Understanding Machine Learning Systems
+Understanding ML systems will be helpful in designing and developing them. In this
+section, we’ll go over how ML systems are different from both ML in research (or
+as often taught in school) and traditional software, which motivates the need for this
+book.
+Machine Learning in Research Versus in Production
+As ML usage in the industry is still fairly new, most people with ML expertise have
+gained it through academia: taking courses, doing research, reading academic papers.
+If that describes your background, it might be a steep learning curve for you to
+understand the challenges of deploying ML systems in the wild and navigate an
+overwhelming set of solutions to these challenges. ML in production is very different
+from ML in research. Table 1-1 shows five of the major differences.
+12 | Chapter 1: Overview of Machine Learning Systems
+
+Chunk idx 3
+Page number 24
+
+more complex pattern, which would be very challenging to manually specify. ML
+is a good solution for this. Instead of telling your system how to calculate the
+price from a list of characteristics, you can provide prices and characteristics, and
+let your ML system figure out the pattern. The difference between ML solutions
+and the lookup table solution as well as general traditional software solutions is
+shown in Figure 1-2. For this reason, ML is also called Software 2.0.5
+ML has been very successful with tasks with complex patterns such as object
+detection and speech recognition. What is complex to machines is different from
+what is complex to humans. Many tasks that are hard for humans to do are
+easy for machines—for example, raising a number of the power of 10. On the
+other hand, many tasks that are easy for humans can be hard for machines—for
+example, deciding whether there’s a cat in a picture.
+4 | Chapter 1: Overview of Machine Learning Systems
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+Machine learning systems differ from traditional software systems in several key ways, including the separation of data and code, handling of complex patterns, and the need for specialized tools. Traditional software assumes code and data are separate, while ML systems often integrate data and code seamlessly. ML systems require specialized tools to manage large datasets, handle non-linear patterns, and avoid overfitting, which are challenges unique to ML. These differences introduce challenges such as the need for extensive data collection, model interpretability, and robust deployment in real-world scenarios [c. 2, p. 32], [c. 3, p. 24].
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question is identical to the original in terms of meaning, structure, and key elements. The slight change in verb usage ('are' vs. 'do') does not alter the core question's intent. The original question is already clear and retrieval-friendly, so the rewrite correctly preserves it.
+Flag   : True
+Reason : The rewritten question maintains the original meaning, structure, and key elements, and is identical to the original question in clarity and retrieval-friendliness.
+
+[Relevance]
+Think  : The retrieved context discusses key differences between machine learning systems and traditional software, including unique challenges like data separation and complex pattern handling. It also highlights the need for specialized tools in ML production. While one chunk is about a specific attack method, the majority of the context addresses the core question.
+Flag   : True
+Reason : The context provides relevant information about ML system differences and challenges, with the majority of content addressing the question.
+
+[Groundedness]
+Think  : The predicted answer cites the relevant sections of the retrieved context for each factual claim. Each key point (separation of data/code, complex patterns, specialized tools, challenges) is supported by the cited pages and chunks.
+Flag   : True
+Reason : All factual claims are supported by the retrieved context with appropriate citations.
+
+[Correctness]
+Think  : The predicted answer correctly identifies key differences between ML systems and traditional software, such as data integration and pattern handling. It covers challenges like data collection, model interpretability, and deployment. While the ground truth mentions 'Software 2.0' as a conceptual distinction, the predicted answer does not explicitly mention it, which is a minor omission. The main points about differences and challenges are consistent.
+Flag   : True
+Reason : The predicted answer is factually consistent with the ground truth, covering the main points about differences and challenges, even if it omits a minor conceptual distinction.

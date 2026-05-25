@@ -1,0 +1,101 @@
+================================================================================
+QUESTION
+================================================================================
+What are the four key requirements of a production ML system, and what does each requirement mean?
+
+================================================================================
+GROUP
+================================================================================
+long-context
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What are the four key aspects of a production ML system, and what does each aspect entail?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Most ML systems should satisfy four key requirements: reliability, scalability, maintainability, and adaptability. Reliability means the system continues functioning correctly even under failures or adverse conditions. Scalability allows the system to handle growth in data, traffic, and model complexity. Maintainability supports collaboration, reproducibility, and easier debugging through structured workflows and tooling. Adaptability enables the system to evolve as data distributions and business requirements change over time.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 21
+
+system also includes the business requirements that gave birth to the ML project in
+the first place, the interface where users and developers interact with your system, the
+data stack, and the logic for developing, monitoring, and updating your models, as
+well as the infrastructure that enables the delivery of that logic. Figure 1-1 shows you
+the different components of an ML system and in which chapters of this book they
+will be covered.
+1
+
+Chunk idx 2
+Page number 49
+
+Figure 2-1. How long it takes for a company to bring a model to production is propor/uni2010
+tional to how long it has used ML. Source: Adapted from an image by Algorithmia
+Requirements for ML Systems
+We can’t say that we’ve successfully built an ML system without knowing what
+requirements the system has to satisfy. The specified requirements for an ML system
+vary from use case to use case. However, most systems should have these four charac!
+teristics: reliability, scalability, maintainability, and adaptability. We’ll walk through
+each of these concepts in detail. Let’s take a closer look at reliability first.
+Reliability
+The system should continue to perform the correct function at the desired level of
+performance even in the face of adversity (hardware or software faults, and even
+human error).
+“Correctness” might be difficult to determine for ML systems. For example, your
+system might call the predict function—e.g., model.predict()—correctly, but the
+
+Chunk idx 3
+Page number 270
+
+day; the percentage of requests that return with a 2xx code; CPU/GPU utilization;
+memory utilization; etc. No matter how good your ML model is, if the system is
+down, you’re not going to benefit from it.
+Let’s look at an example. One of the most important characteristics of a software
+system in production is availability—how often the system is available to offer
+reasonable performance to users. This characteristic is measured by uptime, the
+250 | Chapter 8: Data Distribution Shifts and Monitoring
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+The four key aspects of a production ML system are reliability, scalability, maintainability, and adaptability. Reliability ensures the system performs correctly under adverse conditions, scalability enables handling growth, maintainability allows for system management, and adaptability allows for adaptation to changes [c. 2, p. 49].
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The original question asks about 'requirements' of a production ML system, while the rewritten question uses 'aspects'. 'Requirements' and 'aspects' are related but distinct terms. 'Requirements' typically refer to specific conditions or criteria, whereas 'aspects' might refer to broader characteristics or components. The rewrite shifts from 'requirements' to 'aspects', altering the focus from specific conditions to broader features, which changes the meaning slightly.
+Flag   : False
+Reason : The rewritten question changes the meaning by using 'aspects' instead of 'requirements', which are distinct terms in this context.
+
+[Relevance]
+Think  : The retrieved context explicitly lists the four key requirements of a production ML system: reliability, scalability, maintainability, and adaptability. The first chunk mentions components of an ML system but does not explicitly state these requirements. The third chunk discusses availability, which is part of the system's characteristics but not the four requirements. The second chunk clearly outlines the four requirements with their definitions. The context is sufficiently relevant and informative to answer the question.
+Flag   : True
+Reason : The second chunk explicitly lists the four requirements (reliability, scalability, maintainability, adaptability) and their definitions, making the context relevant and informative for answering the question.
+
+[Groundedness]
+Think  : The predicted answer correctly lists the four requirements (reliability, scalability, maintainability, adaptability) and their explanations, all grounded in the retrieved context. The citations are provided as 'c. 2, p. 49' (chunk 2), which is explicitly mentioned in the context. All factual claims are supported by the retrieved text.
+Flag   : True
+Reason : The answer is fully cited and grounded in the retrieved context, as all claims are directly supported by the specified chunk (chunk 2) and the text within it.
+
+[Correctness]
+Think  : The predicted answer matches the ground truth in the four key requirements (reliability, scalability, maintainability, adaptability) and their explanations. The wording differs slightly (e.g., 'performs correctly under adverse conditions' vs. 'continues functioning correctly'), but the core meanings are consistent. Both answers align on the key requirements and their implications.
+Flag   : True
+Reason : The predicted answer accurately reflects the ground truth in terms of the four requirements and their definitions, with minor wording differences that do not affect factual consistency.

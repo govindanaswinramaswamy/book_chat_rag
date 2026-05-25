@@ -148,7 +148,6 @@ train_dir/data/input/credential.json
 
 # remove data folders
 traces/
-data/
 logs/
 
 # Remove any .DS_Store file

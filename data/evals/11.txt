@@ -1,0 +1,109 @@
+================================================================================
+QUESTION
+================================================================================
+What is inflation?
+
+================================================================================
+GROUP
+================================================================================
+external
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What is inflation?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+I cannot answer this question as it is out of my knowledge.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 31
+
+learn from historical fraud transactions and predict whether a future transaction is
+fraudulent.
+Deciding how much to charge for your product or service is probably one of the
+hardest business decisions; why not let ML do it for you? Price optimization is the
+process of estimating a price at a certain time period to maximize a defined objective
+function, such as the company’s margin, revenue, or growth rate. ML-based pricing
+optimization is most suitable for cases with a large number of transactions where
+demand fluctuates and consumers are willing to pay a dynamic price—for example,
+internet ads, flight tickets, accommodation bookings, ride-sharing, and events.
+To run a business, it’s important to be able to forecast customer demand so that you
+can prepare a budget, stock inventory, allocate resources, and update pricing strategy.
+For example, if you run a grocery store, you want to stock enough so that customers
+
+Chunk idx 2
+Page number 133
+
+et al.
+Data Augmentation
+Data augmentation is a family of techniques that are used to increase the amount
+of training data. Traditionally, these techniques are used for tasks that have limited
+training data, such as in medical imaging. However, in the last few years, they have
+shown to be useful even when we have a lot of data—augmented data can make our
+models more robust to noise and even adversarial attacks.
+Data augmentation has become a standard step in many computer vision tasks and
+is finding its way into natural language processing (NLP) tasks. The techniques
+depend heavily on the data format, as image manipulation is different from text
+manipulation. In this section, we will cover three main types of data augmentation:
+simple label-preserving transformations; perturbation, which is a term for “adding
+Data Augmentation | 113
+
+Chunk idx 3
+Page number 272
+
+the labeling process, such as getting human experts to generate new translations for
+the samples with downvotes, to train the next iteration of their models.
+Figure 8-6. Google Translate allows users to upvote or downvote a translation. /T_hese
+votes will be used to evaluate their translation model’s quality as well as to guide the
+labeling process.
+Monitoring predictions
+Prediction is the most common artifact to monitor. If it’s a regression task, each
+prediction is a continuous value (e.g., the predicted price of a house), and if it’s
+a classification task, each prediction is a discrete value corresponding to the predic !
+ted category. Because each prediction is usually just a number (low dimension),
+252 | Chapter 8: Data Distribution Shifts and Monitoring
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+I do not have enough relevant information in my knowledge to answer this question.
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question is identical to the original, so it preserves the original meaning and does not require any changes. The criteria for a good standalone retrieval question are met as the question is clear, concise, and unchanged.
+Flag   : True
+Reason : The rewritten question matches the original exactly, ensuring preservation of meaning and clarity without any changes.
+
+[Relevance]
+Think  : The retrieved context does not mention inflation. All chunks are irrelevant to the question about inflation.
+Flag   : False
+Reason : The context does not address inflation. All chunks are irrelevant to the question.
+
+[Groundedness]
+Think  : The predicted answer states that there is insufficient relevant information to answer the question. Since no factual claims are made, it qualifies as a safe refusal and does not require citations.
+Flag   : True
+Reason : The answer does not make any factual claims and thus does not require citations from the retrieved context.
+
+[Correctness]
+Think  : Both answers convey the same core message that the assistant lacks sufficient information to answer the question. The predicted answer uses 'not enough relevant information' while the ground truth uses 'out of my knowledge,' but both express the same lack of knowledge. The phrasing differs, but the meaning is consistent.
+Flag   : True
+Reason : The predicted answer is factually consistent with the ground truth and covers the main point of lacking sufficient information.

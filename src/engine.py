@@ -133,7 +133,7 @@ def query_engine(
     - If the answer is not in the chunks, say:
       "I do not have enough relevant information in my knowledge to answer this question."
     - Every factual claim must include a citation.
-    - Citation format: [chunk_id, p. page_number]
+    - Citation format: [c. chunk_id, p. page_number]
 
     Return ONLY valid JSON:
 
@@ -144,7 +144,7 @@ def query_engine(
 
     Example:
     {{
-      "answer": "The refund period is 30 days from purchase [2, p. 128].",
+      "answer": "The refund period is 30 days from purchase [c. 2, p. 128].",
       "reason": "Chunk 2, page 128 explicitly states that refunds are allowed within 30 days of purchase."
     }}
     """
@@ -161,17 +161,21 @@ def query_engine(
         answer = response.answer.strip()
         reason = response.reason.strip()
 
-        # # lightweight guardrails
-        # invalid_answer = (
-        #     not answer
-        #     or not re.search(r"\[\d+\s*,\s*p\.\s*\d+\]", answer)
-        #     or "chunk" in answer.lower()
-        #     or "retrieved chunk" in answer.lower()
-        #     or "source excerpt" in answer.lower()
-        # )
-        # if invalid_answer:
-        #     answer = "I could not generate a reliable answer to this question."
-        #     reason = "Guardrail triggered."
+        # lightweight guardrails
+        refusal_answer = "I do not have enough relevant information in my knowledge to answer this question."
+
+        if not answer:
+            answer = "I could not generate a reliable answer to this question."
+            reason = "Guardrail triggered - Empty answer."
+        elif (
+            answer != refusal_answer
+            and not re.search(r"\[c\.\s*\d+\s*,\s*p\.\s*\d+\]", answer)
+        ):
+            answer = "I could not generate a reliable answer to this question."
+            reason = "Guardrail triggered - No citation found."
+        elif "chunk" in answer.lower():
+            answer = "I could not generate a reliable answer to this question."
+            reason = "Guardrail triggered - Answer talks about chunks."
 
         result = {
             "question": question,
@@ -180,7 +184,8 @@ def query_engine(
             "chunks": chunks,
             "context": context,
             "answer": answer,
-            "reason": reason
+            "reason": reason,
+            "rag_error": None
         }
 
     except Exception as e:
@@ -191,8 +196,9 @@ def query_engine(
             "retrieval_question": retrieval_question,
             "chunks": chunks,
             "context": context,
-            "answer": f"Error generating answer: {e}",
-            "reason": f"Error generating reason: {e}"
+            "answer": f"Error generating answer",
+            "reason": f"Error generating reason",
+            "rag_error": str(e)
         }
 
     return result

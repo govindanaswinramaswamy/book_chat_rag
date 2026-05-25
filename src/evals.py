@@ -150,7 +150,8 @@ def build_evals_dataframe(
             "formatted_chat_history": result["formatted_chat_history"],
             "retrieval_question": result["retrieval_question"],
             "predicted_answer": result["answer"],
-            "predicted_reason": result["reason"]
+            "predicted_reason": result["reason"],
+            "rag_error": result["rag_error"]
 
         })
 
@@ -541,6 +542,12 @@ def generate_and_save_reports(
             f"PREDICTED ANSWER",
             f"{'=' * 80}",
             f"{row['predicted_answer']}",
+            "",
+
+            f"{'=' * 80}",
+            f"RAG ERROR",
+            f"{'=' * 80}",
+            f"{row['rag_error']}",
             "",
 
             f"{'=' * 80}",

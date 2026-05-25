@@ -1,0 +1,115 @@
+================================================================================
+QUESTION
+================================================================================
+What type of features do both usually produce?
+
+================================================================================
+GROUP
+================================================================================
+rephrase-history
+
+================================================================================
+CHAT HISTORY
+================================================================================
+User: Explain batch processing in ML systems.
+Assistant: Batch processing operates on historical stored data and usually runs periodically.
+User: What about stream processing?
+Assistant: Stream processing handles continuously arriving real-time data.
+User: Why is stream processing important?
+Assistant: It helps ML systems react quickly to changing conditions with low latency.
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What type of features do both batch and stream processing typically produce?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Batch processing typically produces static features that change slowly, while stream processing produces dynamic features that change rapidly in real time.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 98
+
+two reasons. First, streaming technologies like Apache Flink are proven to be highly
+scalable and fully distributed, which means they can do computation in parallel.
+Second, the strength of stream processing is in stateful computation. Consider the
+case where you want to process user engagement during a 30-day trial. If you kick
+off this batch job every day, you’ll have to do computation over the last 30 days every
+day. With stream processing, it’s possible to continue computing only the new data
+each day and joining the new data computation with the older data computation,
+preventing redundancy.
+Because batch processing happens much less frequently than stream processing, in
+ML, batch processing is usually used to compute features that change less often, such
+as drivers’ ratings (if a driver has had hundreds of rides, their rating is less likely
+to change significantly from one day to the next). Batch features—features extracted
+
+Chunk idx 2
+Page number 98
+
+Batch Processing Versus Stream Processing
+Once your data arrives in data storage engines like databases, data lakes, or data
+warehouses, it becomes historical data. This is opposed to streaming data (data that
+is still streaming in). Historical data is often processed in batch jobs—jobs that are
+kicked off periodically. For example, once a day, you might want to kick off a batch
+job to compute the average surge charge for all the rides in the last day.
+When data is processed in batch jobs, we refer to it as batch processing. Batch process!
+ing has been a research subject for many decades, and companies have come up with
+distributed systems like MapReduce and Spark to process batch data efficiently.
+When you have data in real-time transports like Apache Kafka and Amazon Kinesis,
+we say that you have streaming data. Stream processing refers to doing computation
+on streaming data. Computation on streaming data can also be kicked off periodi !
+
+Chunk idx 3
+Page number 99
+
+28 Kostas Tzoumas, “Batch Is a Special Case of Streaming, ” Ververica, September 15, 2015, https://oreil.ly/IcIl2.
+For many problems, you need not only batch features or streaming features, but both.
+Y ou need infrastructure that allows you to process streaming data as well as batch
+data and join them together to feed into your ML models. We’ll discuss more on how
+batch features and streaming features can be used together to generate predictions in
+Chapter 7.
+To do computation on data streams, you need a stream computation engine (the
+way Spark and MapReduce are batch computation engines). For simple streaming
+computation, you might be able to get away with the built-in stream computation
+capacity of real-time transports like Apache Kafka, but Kafka stream processing is
+limited in its ability to deal with various data sources.
+For ML systems that leverage streaming features, the streaming computation is
+rarely simple. The number of stream features used in an application such as fraud
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+stateful features [c. 3, p. 99]
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question adds the context of batch and stream processing, which aligns with the conversation history. It preserves the original meaning by asking about features produced by both, while specifying the types of processing. The question is clear, concise, and retrieval-friendly.
+Flag   : True
+Reason : The rewritten question correctly uses the conversation history and preserves the original meaning by specifying the types of processing without altering the core question.
+
+[Relevance]
+Think  : The retrieved context explicitly discusses batch processing features (for static data) and streaming processing features (for real-time data), providing sufficient information to answer the question.
+Flag   : True
+Reason : The context clearly identifies batch features and streaming features as the types produced by both batch and stream processing.
+
+[Groundedness]
+Think  : The predicted answer refers to stateful features, which are discussed in the retrieved context as part of stream processing. The citation [c. 3, p. 99] is explicitly mentioned in the context, supporting the claim.
+Flag   : True
+Reason : The answer is grounded in the retrieved context with a valid citation.
+
+[Correctness]
+Think  : The predicted answer discusses 'stateful features' without directly addressing the question about what both batch and stream processing produce. The ground truth explicitly states that batch processing produces static features and stream processing produces dynamic features. The predicted answer is factually inconsistent because it does not mention batch or stream processing, and instead focuses on a different concept (stateful features) that is not relevant to the question.
+Flag   : False
+Reason : The predicted answer does not align with the ground truth's explanation about batch and stream processing producing static/dynamic features. It focuses on a different concept (stateful features) that is not relevant to the question.

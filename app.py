@@ -121,13 +121,9 @@ if question:
                 "question": question,
                 "retrieval_question": result.get("retrieval_question"),
                 "context": result.get("context"),
-                "relevance_check": result.get("relevance_check"),
-                "plan": result.get("plan"),
                 "answer": result.get("answer"),
-                "groundedness_check": result.get("groundedness_check"),
-                "citation_check": result.get("citation_check"),
-                "usefulness_check": result.get("usefulness_check"),
-                "llm_error": result.get("llm_error"),
+                "reason": result.get("reason"),
+                "rag_error": result.get("rag_error"),
             }
             with open(st.session_state.trace_file_path, "a", encoding="utf-8") as f:
                 # write one JSON object per line
@@ -140,9 +136,9 @@ if question:
             )
 
             # convert citations:
-            # [1, p. 23] -> [p. 23]
+            # [c. 1, p. 23] -> [p. 23]
             answer = re.sub(
-                r"\[\d+\s*,\s*p\.\s*(\d+)\]",
+                r"\[c\.\s*\d+\s*,\s*p\.\s*(\d+)\]",
                 r"[p. \1]",
                 answer,
             )

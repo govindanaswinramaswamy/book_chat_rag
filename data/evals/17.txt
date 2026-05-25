@@ -1,0 +1,113 @@
+================================================================================
+QUESTION
+================================================================================
+What are the four key requirements for them?
+
+================================================================================
+GROUP
+================================================================================
+rephrase-history
+
+================================================================================
+CHAT HISTORY
+================================================================================
+User: Why are modern ML systems difficult to maintain?
+Assistant: ML systems are harder to maintain because they depend on both code and data distributions.
+User: What makes debugging difficult?
+Assistant: Model behavior can be difficult to interpret and reproduce.
+User: Tell me about production ML systems.
+Assistant: Production ML systems need to be designed carefully to work reliably in real-world environments.
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+What are the four key requirements for ML systems, including code and data distributions, model behavior interpretability, reliable design for real-world environments, and scalability?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Most ML systems should satisfy four key requirements: reliability, scalability, maintainability, and adaptability. Reliability means the system continues functioning correctly even under failures or adverse conditions. Scalability allows the system to handle growth in data, traffic, and model complexity. Maintainability supports collaboration, reproducibility, and easier debugging through structured workflows and tooling. Adaptability enables the system to evolve as data distributions and business requirements change over time.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 67
+
+24 Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “ImageNet Classification with Deep Convolutional
+Neural Networks, ” in Advances in Neural Information Processing Systems, vol. 25, ed. F . Pereira, C.J. Burges,
+L. Bottou, and K.Q. Weinberger (Curran Associates, 2012), https://oreil.ly/MFYp9; Jacob Devlin, Ming-Wei
+Chang, Kenton Lee, and Kristina Toutanova, “BERT: Pre-training of Deep Bidirectional Transformers for
+Language Understanding, ” arXiv, 2019, https://oreil.ly/TN8fN; “Better Language Models and Their Implica!
+tions, ” OpenAI blog, February 14, 2019, https://oreil.ly/SGV7g.
+Before building an ML system, we need to understand the requirements that the
+system needs to meet to be considered a good system. The exact requirements vary
+from use case to use case, and in this chapter, we focused on the four most general
+requirements: reliability, scalability, maintainability, and adaptability. Techniques to
+
+Chunk idx 2
+Page number 45
+
+into ML objectives to guide the development of ML models.
+Once everyone is on board with the objectives for our ML system, we’ll need to set
+out some requirements to guide the development of this system. In this book, we’ll
+consider the four requirements: reliability, scalability, maintainability, and adaptabil !
+ity. We will then introduce the iterative process for designing systems to meet those
+requirements.
+Y ou might wonder: with all these objectives, requirements, and processes in place,
+can I finally start building my ML model yet? Not so soon! Before using ML algo !
+rithms to solve your problem, you first need to frame your problem into a task that
+ML can solve. We’ll continue this chapter with how to frame your ML problems. The
+difficulty of your job can change significantly depending on how you frame your
+problem.
+25
+
+Chunk idx 3
+Page number 67
+
+from use case to use case, and in this chapter, we focused on the four most general
+requirements: reliability, scalability, maintainability, and adaptability. Techniques to
+satisfy each of these requirements will be covered throughout the book.
+Building an ML system isn’t a one-off task but an iterative process. In this chapter,
+we discussed the iterative process to develop an ML system that met those preceding
+requirements.
+We ended the chapter on a philosophical discussion of the role of data in ML systems.
+There are still many people who believe that having intelligent algorithms will eventu!
+ally trump having a large amount of data. However, the success of systems including
+AlexNet, BERT, and GPT showed that the progress of ML in the last decade relies on
+having access to a large amount of data. 24 Regardless of whether data can overpower
+intelligent design, no one can deny the importance of data in ML. A nontrivial part of
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+The four key requirements for ML systems are reliability, scalability, maintainability, and adaptability [c. 1, p. 67].
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question restates the original question's intent while including all four key requirements from the conversation history. It preserves the original meaning by retaining the core query about requirements for ML systems, correctly uses the conversation history's specific points, and is clear and retrieval-friendly.
+Flag   : True
+Reason : The rewritten question matches the original meaning, uses the conversation history's four key requirements, and is concise and retrieval-friendly.
+
+[Relevance]
+Think  : The retrieved context includes a chunk (chunk idx 1) that explicitly mentions the four key requirements: reliability, scalability, maintainability, and adaptability. These are directly addressed in the question. The other chunks are irrelevant to the question's specific requirements.
+Flag   : True
+Reason : Chunk idx 1 provides the necessary information about the four requirements, while the other chunks are irrelevant to the question.
+
+[Groundedness]
+Think  : The predicted answer correctly cites the chunk that explicitly states the four requirements (reliability, scalability, maintainability, adaptability) and their importance in the context. The citation [c. 1, p. 67] refers to chunk idx 1, which provides the necessary information. While other chunks do not cite this specific claim, the answer is grounded in the cited information.
+Flag   : True
+Reason : The answer is fully cited and grounded in the retrieved context, as the four requirements are explicitly stated in chunk idx 1 with the provided citation.
+
+[Correctness]
+Think  : The predicted answer matches the ground truth in the four key requirements (reliability, scalability, maintainability, adaptability) and provides accurate explanations for each. The wording differs slightly, but the core concepts are consistent.
+Flag   : True
+Reason : The predicted answer accurately lists the four requirements and explains them similarly to the ground truth, with minor wording differences that do not affect factual consistency.

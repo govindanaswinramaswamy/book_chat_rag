@@ -1,0 +1,111 @@
+================================================================================
+QUESTION
+================================================================================
+why stratified sampeling use by ppl?
+
+================================================================================
+GROUP
+================================================================================
+rephrase-typo
+
+================================================================================
+CHAT HISTORY
+================================================================================
+
+
+================================================================================
+RETRIEVAL QUESTION
+================================================================================
+Why is stratified sampling used?
+
+================================================================================
+GROUND TRUTH
+================================================================================
+Stratified sampling is a method where the population is divided into groups (strata) and samples are taken from each group separately. It is used to ensure that all important groups are represented in the sample.
+
+================================================================================
+RETRIEVED CONTEXT
+================================================================================
+Chunk idx 1
+Page number 104
+
+your data, samples of this rare class will unlikely be selected. Models trained on this
+selection might think that this rare class doesn’t exist.
+Strati/f_ied Sampling
+To avoid the drawback of simple random sampling, you can first divide your popula !
+tion into the groups that you care about and sample from each group separately. For
+example, to sample 1% of data that has two classes, A and B, you can sample 1% of
+class A and 1% of class B. This way, no matter how rare class A or B is, you’ll ensure
+that samples from it will be included in the selection. Each group is called a stratum,
+and this method is called stratified sampling.
+84 | Chapter 4: Training Data
+
+Chunk idx 2
+Page number 104
+
+for rainy or snowy weather.
+Nonprobability sampling can be a quick and easy way to gather your initial data to
+get your project off the ground. However, for reliable models, you might want to use
+probability-based sampling, which we will cover next.
+Simple Random Sampling
+In the simplest form of random sampling, you give all samples in the population
+equal probabilities of being selected. 4 For example, you randomly select 10% of the
+population, giving all members of this population an equal 10% chance of being
+selected.
+The advantage of this method is that it’s easy to implement. The drawback is that
+rare categories of data might not appear in your selection. Consider the case where
+a class appears only in 0.01% of your data population. If you randomly select 1% of
+your data, samples of this rare class will unlikely be selected. Models trained on this
+selection might think that this rare class doesn’t exist.
+Strati/f_ied Sampling
+
+Chunk idx 3
+Page number 102
+
+it’s infeasible to process all the data that you have access to—because it requires too
+much time or resources—so you have to sample that data to create a subset that
+is feasible to process. In many other cases, sampling is helpful as it allows you to
+accomplish a task faster and cheaper. For example, when considering a new model,
+you might want to do a quick experiment with a small subset of your data to see if the
+new model is promising first before training this new model on all your data.1
+Understanding different sampling methods and how they are being used in our
+workflow can, first, help us avoid potential sampling biases, and second, help us
+choose the methods that improve the efficiency of the data we sample.
+There are two families of sampling: nonprobability sampling and random sampling.
+We’ll start with nonprobability sampling methods, followed by several common ran!
+dom sampling methods.
+82 | Chapter 4: Training Data
+
+================================================================================
+PREDICTED ANSWER
+================================================================================
+Stratified sampling is used to ensure that all groups, even rare ones, are represented in the sample [c.1, p.104].
+
+================================================================================
+RAG ERROR
+================================================================================
+None
+
+================================================================================
+EVALUATION
+================================================================================
+
+[Rephrase]
+Think  : The rewritten question 'Why is stratified sampling used?' preserves the original meaning by removing the ambiguous 'by ppl' and focuses on the core question about the purpose of stratified sampling. It is clear, concise, and retrieval-friendly.
+Flag   : True
+Reason : The rewritten question removes the ambiguous 'by ppl' and retains the core meaning of the original question, ensuring clarity and relevance for retrieval.
+
+[Relevance]
+Think  : The retrieved context explains that stratified sampling ensures representation of rare classes by dividing the population into strata and sampling each separately. This addresses the drawback of simple random sampling where rare classes might not be included. The context provides sufficient information to answer the question.
+Flag   : True
+Reason : All chunks are relevant and explain the purpose of stratified sampling in ensuring representation of rare classes.
+
+[Groundedness]
+Think  : The predicted answer states that stratified sampling ensures all groups, including rare ones, are represented. The retrieved context explicitly supports this claim, citing page 104, chunk idx 1. The answer is directly quoted and supported by the provided text.
+Flag   : True
+Reason : The answer is fully cited in the retrieved context and accurately reflects the explanation provided in the text.
+
+[Correctness]
+Think  : The predicted answer correctly identifies the purpose of stratified sampling (ensuring representation of all groups) and mentions rare groups, which aligns with the ground truth. The key points are covered, even if the phrasing differs slightly.
+Flag   : True
+Reason : The predicted answer is factually consistent with the ground truth and covers the main purpose of stratified sampling.
