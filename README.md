@@ -8,6 +8,13 @@ The project is intentionally designed as a simple enterprise-style RAG system fo
 
 ---
 
+## Chatbot Interface
+
+Below is a screenshot of the chatbot interface:
+
+![UI Screenshot](assets/chat_interface.png)
+
+
 ## Method Walkthrough
 
 The chatbot follows an enterprise-style RAG pipeline:

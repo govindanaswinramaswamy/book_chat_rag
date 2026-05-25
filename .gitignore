@@ -141,9 +141,7 @@ cython_debug/
 train_dir/data/input/credential.json
 
 # remove files
-*.csv
 *.zip
-*.png
 *.jsonl
 
 # remove data folders
